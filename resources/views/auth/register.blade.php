@@ -1,5 +1,6 @@
 @extends('layouts.form')
-
+@section('title', 'Registro')
+@section('subtitle', 'Ingresa tus datos para registrarse' )
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

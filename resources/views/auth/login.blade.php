@@ -1,4 +1,6 @@
  @extends('layouts.form')
+@section('title', 'Inicio de Sesion')
+ @section('subtitle', 'Ingresa tus datos para iniciar sesión' )
 
 @section('content')
     <div class="container mt--8 pb-5">

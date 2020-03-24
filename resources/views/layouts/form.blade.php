@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <title>{{config('app.name')}}| @yield('title')</title>
     <!-- Favicon -->
     <link href="{{asset('/img/brand/favicon.png')}}" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
         <div class="container px-4">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="{{url('/')}}">
 
                 <img src="{{asset('/img/brand/white.png ')}}" />
             </a>
@@ -49,12 +49,7 @@
                 </div>
                 <!-- Navbar items -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="../index.html">
-                            <i class="ni ni-planet"></i>
-                            <span class="nav-link-inner--text">Dashboard</span>
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="{{url('/register')}}">
                             <i class="ni ni-circle-08"></i>
@@ -62,29 +57,26 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="../examples/login.html">
+                        <a class="nav-link nav-link-icon" href="{{'/login'}}">
                             <i class="ni ni-key-25"></i>
                             <span class="nav-link-inner--text">Login</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="../examples/profile.html">
-                            <i class="ni ni-single-02"></i>
-                            <span class="nav-link-inner--text">Profile</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Header -->
-    <div class="header bg-gradient-primary py-7 py-lg-8">
+    <div class="header bg-gradient-primary py-6 py-lg-7">
         <div class="container">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">
-                        <h1 class="text-white">Welcome!</h1>
-                        <p class="text-lead text-light">Use these awesome forms to login or create new account in your project for free.</p>
+                        <h1 class="text-white">
+                            @yield('title', 'welcome')
+                        </h1>
+                        <p class="text-lead text-light">@yield('subtitle')</p>
                     </div>
                 </div>
             </div>
