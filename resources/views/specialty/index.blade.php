@@ -24,12 +24,13 @@
                         </tr>
                         </thead>
                         <tbody>
+                         @foreach($specialties as $specialty)
                         <tr>
                             <th scope="row">
-                                Oftarmologia
+                              {{$specialty->name}}
                             </th>
                             <td>
-
+                                {{$specialty->description}}
                             </td>
                             <td>
                                 <a href="" class="btn btn-sm btn-success">Editar</a>
@@ -37,7 +38,7 @@
                             </td>
 
                         </tr>
-
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

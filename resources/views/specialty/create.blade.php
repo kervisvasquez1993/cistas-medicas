@@ -18,11 +18,18 @@
         <div class="table-responsive">
             <!-- Projects table -->
             <div class="card-body">
+                @if($errors->any())
+                    <ul class="alert alert-danger" role="alert">
+                         @foreach($errors->all() as $error )
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <form action="{{url('/specialties')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre de la Especialidad</label>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Descripción</label>
