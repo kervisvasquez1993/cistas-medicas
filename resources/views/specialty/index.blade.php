@@ -33,8 +33,13 @@
                                 {{$specialty->description}}
                             </td>
                             <td>
-                                <a href="" class="btn btn-sm btn-success">Editar</a>
-                                <a href="" class="btn btn-sm btn-warning">Eliminar</a>
+
+                                <form action="{{url('/specialties/'.$specialty->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{url('/specialties/'.$specialty->id.'/edit')}}" class="btn btn-sm btn-success">Editar</a>
+                                    <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+                                </form>
                             </td>
 
                         </tr>
