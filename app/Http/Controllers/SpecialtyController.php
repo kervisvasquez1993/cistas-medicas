@@ -21,7 +21,7 @@ class SpecialtyController extends Controller
     {
         return view('specialty.create');
     }
-    public function store(Request $request)
+    public function performValidate(Request $request)
     {
         // validar del lado del servidor
         $rules = [
@@ -33,12 +33,17 @@ class SpecialtyController extends Controller
 
         ];
         $this->validate($request, $rules, $messeges);
+    }
+    public function store(Request $request)
+    {
 
+        $this->performValidate($request);
         $specialty = new Specialty();
         $specialty->name = $request->input('name');
         $specialty->description = $request->input('description');
         $specialty->save(); // insert
-        return redirect('/specialties');
+        $notification = 'la especialidad se a registrado correctamente';
+        return redirect('/specialties')->with(compact('notification'));
 
     }
 
@@ -50,27 +55,22 @@ class SpecialtyController extends Controller
     public function update(Request $request, Specialty $specialty)
     {
         // validar del lado del servidor
-        $rules = [
-            'name' => 'required | min:3'
-        ];
-        $messeges = [
-            'name.required' => 'Es Necesario ingresar un nombre',
-            'name.min' => 'Como minimo debe tener tres caracteres',
-
-        ];
-        $this->validate($request, $rules, $messeges);
+        $this->performValidate($request);
 
 
         $specialty->name = $request->input('name');
         $specialty->description = $request->input('description');
         $specialty->save(); // update
-        return redirect('/specialties');
+        $notification = 'La actualización se realizo correctamente';
+        return redirect('/specialties')->with(compact('notification'));
 
     }
     public function destroy(Specialty $specialty)
     {
-        $specialty->delete();
-        return redirect('/specialties');
+        $nombreName = $specialty->name;
+            $specialty->delete();
+        $notification = 'Se elimino la especialidad '. $nombreName.' correctamente';
+        return redirect('/specialties')->with(compact('notification'));
 
     }
 

@@ -9,3 +9,10 @@ para viasualizar el error
               </ul>
 @endif
 
+
+para crear notificaciones cuando se registra la variable
+@if(session('notification'))
+                <div class="alert alert-success" role="alert">
+                     {{session('notification')}}
+                </div>
+            @endif

@@ -27,3 +27,10 @@ Route::post('/specialties', 'SpecialtyController@store');// envio del form
 Route::put('/specialties/{specialty}', 'SpecialtyController@update');
 Route::delete('/specialties/{specialty}', 'SpecialtyController@destroy');
 
+
+// Doctors
+Route::resource('/doctors', 'DoctorsController');
+
+//Patients
+
+
