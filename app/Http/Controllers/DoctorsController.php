@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class DoctorsController extends Controller
+class PatientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-        $doctors = User::all();
-        return view('doctors.index', compact('doctors'));
+        $patients = User::all();
+        return view('patients.index', compact('patients'));
     }
 
     /**
@@ -25,7 +25,7 @@ class DoctorsController extends Controller
      */
     public function create()
     {
-        return view('doctors.create');
+        return view('patients.create');
     }
 
     /**
