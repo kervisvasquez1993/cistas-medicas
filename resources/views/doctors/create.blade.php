@@ -28,12 +28,24 @@
                 <form action="{{url('/specialties')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Nombre de la Especialidad</label>
+                        <label for="name">Nombre del médico</label>
                         <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <input type="text" name="description" class="form-control" value="{{old('description')}}">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" class="form-control" value="{{old('email')}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cedula</label>
+                        <input type="text" name="cedula" class="form-control" value="{{old('cedula')}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input type="text" name="address" class="form-control" value="{{old('address')}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono / movil</label>
+                        <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary">
